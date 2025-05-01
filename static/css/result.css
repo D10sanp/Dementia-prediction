@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #8e2de2, #ff6a00, #f21909, #f2b808, #38da0b);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite; /* Subtle animation to create movement */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f2b808;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+}
+.result h2, .diet-recommendation h2 {
+    margin-bottom: 15px; /* Adds spacing below the heading */
+}
+
+.diet-recommendation p {
+    margin-bottom: 20px; /* Adds spacing below the recommendation text */
+}
+.result-header {
+    font-weight: bold;  /* Makes the header bold */
+    text-align: center;
+}
+
+.result h2, .diet-recommendation h2 {
+    font-weight: 600;  /* Slightly bolder sub-headings */
+}
+.button:focus {
+    outline: 3px solid #ff0; /* Highlight the button when it is focused */
+}
+
+
+.result-header {
+    font-size: 24px;
+    color: #333;
+}
+
+.result h2 {
+    font-size: 20px;
+    color: #444;
+}
+
+.diet-recommendation h2 {
+    font-size: 20px;
+    color: #444;
+}
+
+.diet-recommendation p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Back Button Styling */
+.back-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #34eb77, #0bd6e3); /* Change color when selected */
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .result-header, .result h2, .diet-recommendation h2 {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

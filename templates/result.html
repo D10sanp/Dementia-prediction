@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dementia Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="result-header">Dementia Prediction Result</h1>
+        <div class="result">
+            <h2>Prediction: </h2>
+            <p class="prediction-text">{{ prediction_text }}</p>
+        </div>
+
+        <div class="diet-recommendation">
+            <h2>Diet Recommendation:</h2>
+            <p>{{ diet_recommendation }}</p>
+        </div>
+
+        <div class="back-button">
+            <a href="{{ url_for('index') }}" class="button">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>

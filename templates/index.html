@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dementia Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="form-container">
+        <h1>🧠 Dementia Prediction Form</h1><br><br><br><br><br><br><br>
+        <div class="left-side"></div>
+        <div class="right-side"></div>
+
+        <!-- ✅ Fixed the form method and action -->
+        <form method="POST" action="{{ url_for('predict') }}">
+            <div class="Diabetic">
+                <label class="diabetic-label">Diabetic </label>
+                <input type="radio" id="1" name="diabetic" value="1" class="radio-input">
+                <label for="1" class="custom-radio">Yes</label>
+                <input type="radio" id="0" name="diabetic" value="0" class="radio-input">
+                <label for="0" class="custom-radio">No</label>
+            </div>
+
+            <!-- AlcoholLevel -->
+            <div class="Alcohol-Level">
+                <label for="alcohol_level" class="alcohol-level-label">Alcohol Level🍻:</label>
+                <input type="radio" id="alcohol_level_none" name="alcohol_level" value="0" class="radio-input">
+                <label for="alcohol_level_none" class="custom-radio">None</label>
+                <input type="radio" id="alcohol_level_low" name="alcohol_level" value="3" class="radio-input">
+                <label for="alcohol_level_low" class="custom-radio">Low</label>
+                <input type="radio" id="alcohol_level_moderate" name="alcohol_level" value="2" class="radio-input">
+                <label for="alcohol_level_moderate" class="custom-radio">Moderate</label>
+                <input type="radio" id="alcohol_level_high" name="alcohol_level" value="1" class="radio-input">
+                <label for="alcohol_level_high" class="custom-radio">High</label>
+            </div>
+
+            <label for="heart_rate">Heart Rate 💖</label>
+            <input type="number" id="heart_rate" name="heart_rate" step="any" required><br>
+
+            <label for="blood_oxygen_level">Blood Oxygen Level (in %):</label>
+            <input type="number" id="blood_oxygen_level" name="blood_oxygen_level" step="any" required><br>
+
+            <label for="body_temperature">Body Temperature (in °C):</label>
+            <input type="number"  id="body_temperature" name="body_temperature" step ="any" required><br>
+
+            <label for="weight">Weight (in kg):</label>
+            <input type="number" step="any" id="weight" name="weight" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+
+            <div class="Gender">
+                <label class="gender-label">Gender:</label>
+                <input type="radio" id="gender_male" name="gender" value="1" class="radio-input">
+                <label for="gender_male" class="custom-radio">Male🧑</label>
+                <input type="radio" id="gender_female" name="gender" value="0" class="radio-input">
+                <label for="gender_female" class="custom-radio">Female👩</label>
+            </div>
+            
+            <div class="Family-History">
+                <label for="family_history" class="family-history-label">Family History:</label>
+                <input type="radio" id="family_history_yes" name="family_history" value="1" class="radio-input">
+                <label for="family_history_yes" class="custom-radio">Yes</label>
+                <input type="radio" id="family_history_no" name="family_history" value="0" class="radio-input">
+                <label for="family_history_no" class="custom-radio">No</label>
+            </div>
+
+            <div class="Smoking-Status">
+                <label for="smoking_status" class="smoking-status-label">Smoking Status:</label>
+                <input type="radio" id="smoking_status_never" name="smoking_status" value="0" class="radio-input">
+                <label for="smoking_status_never" class="custom-radio">Never</label>
+                <input type="radio" id="smoking_status_current" name="smoking_status" value="1" class="radio-input">
+                <label for="smoking_status_current" class="custom-radio">Current</label>
+                <input type="radio" id="smoking_status_former" name="smoking_status" value="2" class="radio-input">
+                <label for="smoking_status_former" class="custom-radio">Former</label>
+            </div>
+
+            <div class="APOE">
+                <label for="apoe_e4" class="apoe-label">APOE ε4:</label>
+                <input type="radio" id="apoe_e4_positive" name="apoe_e4" value="1" class="radio-input">
+                <label for="apoe_e4_positive" class="custom-radio">Positive</label>
+                <input type="radio" id="apoe_e4_negative" name="apoe_e4" value="0" class="radio-input">
+                <label for="apoe_e4_negative" class="custom-radio">Negative</label>
+            </div>
+
+            <div class="Physical-Activity">
+                <label for="physical_activity" class="physical-activity-label">Physical Activity:</label>
+                <input type="radio" id="physical_activity_sedentary" name="physical_activity" value="0" class="radio-input">
+                <label for="physical_activity_sedentary" class="custom-radio">Sedentary</label>
+                <input type="radio" id="physical_activity_moderate" name="physical_activity" value="1" class="radio-input">
+                <label for="physical_activity_moderate" class="custom-radio">Moderate</label>
+                <input type="radio" id="physical_activity_active" name="physical_activity" value="2" class="radio-input">
+                <label for="physical_activity_active" class="custom-radio">Active</label>
+            </div>
+
+            <div class="Depression-Status">
+                <label for="depression_status" class="depression-status-label">Depression Status:</label>
+                <input type="radio" id="depression_status_yes" name="depression_status" value="1" class="radio-input">
+                <label for="depression_status_yes" class="custom-radio">Yes</label>
+                <input type="radio" id="depression_status_no" name="depression_status" value="0" class="radio-input">
+                <label for="depression_status_no" class="custom-radio">No</label>
+            </div>
+
+            <label for="cognitive_test_scores">Cognitive Test Scores:</label>
+            <input type="number" id="cognitive_test_scores" name="cognitive_test_scores" required><br><br>
+
+            <div class="Medication-History">
+                <label for="medication_history" class="medication-history-label">Medication History:</label>
+                <input type="radio" id="medication_history_yes" name="medication_history" value="1" class="radio-input">
+                <label for="medication_history_yes" class="custom-radio">Yes</label>
+                <input type="radio" id="medication_history_no" name="medication_history" value="0" class="radio-input">
+                <label for="medication_history_no" class="custom-radio">No</label>
+            </div>
+
+            <label for="nutrition_diet">Nutrition Diet:</label>
+            <select id="nutrition_diet" name="nutrition_diet" required>
+                <option value="0">Low-Carb</option>
+                <option value="1">Mediterranean</option>
+                <option value="2">Balanced</option>
+            </select>
+
+            <div class="Sleep-Quality">
+                <label for="sleep_quality" class="sleep-quality-label">Sleep Quality:</label>
+                <input type="radio" id="sleep_quality_poor" name="sleep_quality" value="0" class="radio-input">
+                <label for="sleep_quality_poor" class="custom-radio">Poor</label>
+                <input type="radio" id="sleep_quality_good" name="sleep_quality" value="1" class="radio-input">
+                <label for="sleep_quality_good" class="custom-radio">Good</label>
+            </div>
+
+
+<!-- Chronic Health Conditions -->
+<div class="Chronic-Health-Conditions">
+    <label for="chronic_health_conditions" class="chronic-health-conditions-label">Chronic Health Conditions:</label>
+    
+    <input type="radio" id="chronic_health_conditions_heart_disease" name="chronic_health_conditions" value="0" class="radio-input">
+    <label for="chronic_health_conditions_heart_disease" class="custom-radio">Heart Disease</label>
+    
+    <input type="radio" id="chronic_health_conditions_hypertension" name="chronic_health_conditions" value="1" class="radio-input">
+    <label for="chronic_health_conditions_hypertension" class="custom-radio">Hypertension</label>
+    </div><br>
+    
+    
+    <button type="submit">Predict🚀</button>
+    </form>
+    </section>
+    
+    {% if prediction_text %}
+    <section class="prediction-result">
+    <h2>Prediction Result:</h2>
+    <p>{{ prediction_text }}</p>
+    </section>
+    {% endif %}
+</body>
+</html>
